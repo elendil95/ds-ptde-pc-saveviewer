@@ -1,0 +1,69 @@
+/* http://docs.oracle.com/javase/8/javafx/api/javafx/scene/doc-files/cssref.html */
+/* jfxrt.jar:!com/sun/javafx/scene/control/skin/modena/modena.css */
+
+.slot-details.scroll-pane > .viewport {
+    -fx-background-color: #ccc;
+}
+
+.dialog-pane:header .header-panel {
+    -fx-background-color: #eee; /* linear-gradient(#eee, derive(#eee, 50%)); */
+    -fx-border-color: #999;
+    -fx-border-width: 0 0 1 0;
+}
+
+/* horizontal the two nodes are placed to the left/right of each other. */
+.split-pane:horizontal > .split-pane-divider {
+    -fx-background-color: #ccc;
+    -fx-background-image: url('bg-divider-horizontal.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-border-color: #999;
+    -fx-border-width: 0 1 0 1;
+}
+/* vertical the two nodes are placed on top of each other. */
+.split-pane:vertical > .split-pane-divider {
+    -fx-background-color: #ccc;
+    -fx-background-image: url('bg-divider-vertical.png');
+    -fx-background-repeat: no-repeat;
+    -fx-background-position: center;
+    -fx-border-color: #999;
+    -fx-border-width: 1 0 1 0;
+}
+
+.tree-cell > .tree-disclosure-node-wrapper,
+.tree-table-row-cell > .tree-disclosure-node-wrapper {
+	-fx-padding: 0 3 0 3;
+}
+
+.tree-cell > .tree-disclosure-node-wrapper > .tree-disclosure-node > .arrow,
+.tree-table-row-cell > .tree-disclosure-node-wrapper > .tree-disclosure-node > .arrow {
+    -fx-background-color: -fx-text-background-color;
+    -fx-padding: 0.333333em 0.229em 0.333333em 0.229em; /* 4 */
+    -fx-shape: "M 0 -3.5 L 4 0 L 0 3.5 z";
+}
+
+.tree-cell:expanded > .tree-disclosure-node-wrapper > .tree-disclosure-node > .arrow,
+.tree-table-row-cell:expanded > .tree-disclosure-node-wrapper > .tree-disclosure-node > .arrow {
+    -fx-rotate: 90;
+}
+
+.tree-view .tree-cell:odd,
+.tree-table-view .tree-table-row-cell:odd {
+	-fx-background: #ededed;
+}
+
+.tree-view:focused .tree-cell:filled:odd:selected,
+.tree-view:focused .tree-cell:odd:selected,
+.tree-table-view:focused .tree-table-row-cell:filled:odd:selected,
+.tree-table-view:focused .tree-table-row-cell:odd:selected {
+	-fx-background-color: -fx-selection-bar;
+	-fx-table-cell-border-color: derive(-fx-selection-bar, 20%);
+}
+
+.tree-cell:filled:odd:selected,
+.tree-cell:odd:selected,
+.tree-table-row-cell:filled:odd:selected,
+.tree-table-row-cell:odd:selected {
+	-fx-background-color: -fx-selection-bar-non-focused;
+	-fx-table-cell-border-color: derive(-fx-selection-bar-non-focused, 20%);
+}
