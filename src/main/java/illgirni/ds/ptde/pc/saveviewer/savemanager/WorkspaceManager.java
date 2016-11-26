@@ -61,8 +61,10 @@ public class WorkspaceManager {
      * @throws SaveManagerException
      */
     public void loadSaveSlot(final ExportedSlot exportedSlot) throws SaveManagerException {
-        File saveSlotFile = new File(getWorkspaceExportedSlotsDirectory(), exportedSlot.getFile());
-        exportedSlot.setSlot(saveManager.loadSaveSlot(saveSlotFile.getAbsolutePath()));
+        final File saveSlotFile = new File(getWorkspaceExportedSlotsDirectory(), exportedSlot.getFile());
+        final File loadScreenFile = new File(getWorkspaceExportedSlotsDirectory(), exportedSlot.getLoadScreenFile());
+        
+        exportedSlot.setSlot(saveManager.loadSaveSlot(saveSlotFile.getAbsolutePath(), loadScreenFile.getAbsolutePath()));
     }
     
     /**
@@ -80,9 +82,11 @@ public class WorkspaceManager {
      */
     public void exportSlot(final SaveSlot slotToExport, final String name, final String description, final ExportedSlotGroup group) throws SaveManagerException {
         final String slotFileName = saveManager.exportSaveSlot(slotToExport, getWorkspaceExportedSlotsDirectory());
+        final String loadScreenFileName = saveManager.exportSaveSlotLoadScreen(slotToExport, getWorkspaceExportedSlotsDirectory());
         
         final ExportedSlot exportedSlot = new ExportedSlot();
         exportedSlot.setFile(slotFileName);
+        exportedSlot.setLoadScreenFile(loadScreenFileName);
         exportedSlot.setName(name);
         exportedSlot.setDescription(description);
         exportedSlot.setSlot(slotToExport);
@@ -129,7 +133,7 @@ public class WorkspaceManager {
     public void deleteSlot(final ExportedSlot exportedSlot) throws SaveManagerException {
         final ExportedSlotGroup parentGroup = findParentGroup(exportedSlot);
         
-        saveManager.deleteSaveSlot(getWorkspaceExportedSlotsDirectory(), exportedSlot.getFile());
+        saveManager.deleteSaveSlot(getWorkspaceExportedSlotsDirectory(), exportedSlot.getFile(), exportedSlot.getLoadScreenFile());
         parentGroup.getSlots().remove(exportedSlot);
         
         saveWorkspace();
@@ -199,7 +203,7 @@ public class WorkspaceManager {
         }
         
         for (final ExportedSlot slot : slotGroup.getSlots()) {
-            saveManager.deleteSaveSlot(getWorkspaceExportedSlotsDirectory(), slot.getFile());
+            saveManager.deleteSaveSlot(getWorkspaceExportedSlotsDirectory(), slot.getFile(), slot.getLoadScreenFile());
         }
     }
     

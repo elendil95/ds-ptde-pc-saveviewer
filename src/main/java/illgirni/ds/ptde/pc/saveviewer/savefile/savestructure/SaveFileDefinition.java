@@ -25,7 +25,8 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savestructure.ByteBlockSectionDef
  * always the same gap between the slots. This makes the save slot definitions kinda redundant. But it's good for 
  * validation.
  * <p/>
- * Curiously the save file contains actually eleven slots and not ten as available in game!
+ * Curiously the save file contains actually eleven slots and not ten as available in game! The eleventh slot contains the
+ * data shown on the character loading screen.
  *
  */
 @Bean
@@ -88,6 +89,32 @@ public class SaveFileDefinition {
     }
     
     /**
+     * Definition of the block containing the data for a save slot as shown on the loading screen.
+     * 
+     * @param slotIndex The index of the slot.
+     */
+    public ByteBlockSectionDefinition<ByteBlock> getSlotLoadScreenDefinition(int slotIndex) {
+        //TODO give the 56 a name
+        final int offset = getLoadingScreenSlotOffset() + 56 + (slotIndex * getLoadScreenCharacterBlockLength());
+        
+        return new ByteBlockSectionDefinition<>(offset, getLoadScreenCharacterBlockLength(), JavaTypeToDataType.BYTE_BLOCK);
+    }
+    
+    /**
+     * The offset of the hidden 11th slot containing the load screen data.
+     */
+    public int getLoadingScreenSlotOffset() {
+        return 3933184;
+    }
+    
+    /**
+     * The length of a data block shown on the character loading screen.
+     */
+    private int getLoadScreenCharacterBlockLength() {
+        return 368;
+    }
+    
+    /**
      * The number of save slots in a save file. A save file always has the same number
      * of slots. But the single slots can be empty.
      */
@@ -108,5 +135,5 @@ public class SaveFileDefinition {
     private int getSlotDescriptorLength() {
         return 32;
     }
-    
+
 }

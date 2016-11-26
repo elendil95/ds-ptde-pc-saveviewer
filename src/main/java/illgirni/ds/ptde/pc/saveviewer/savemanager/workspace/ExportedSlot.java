@@ -15,7 +15,7 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savedata.SaveSlot;
  * @author illgirni
  *
  */
-@XmlType(name = "exportedSlotType", propOrder = {"file", "name", "description"})
+@XmlType(name = "exportedSlotType", propOrder = {"file", "loadScreenFile", "name", "description"})
 @XmlAccessorType(XmlAccessType.NONE)
 public class ExportedSlot implements Comparable<ExportedSlot> {
     
@@ -36,6 +36,12 @@ public class ExportedSlot implements Comparable<ExportedSlot> {
      */
     @XmlElement(name = "file", required = true)
     private String file;
+    
+    /**
+     * Name of the file containing the data shown on the character loading screen.
+     */
+    @XmlElement(name = "loadScreenFile", required = true)
+    private String loadScreenFile;
     
     /**
      * The slot data loaded from the file.
@@ -83,6 +89,20 @@ public class ExportedSlot implements Comparable<ExportedSlot> {
      */
     public void setFile(String file) {
         this.file = file;
+    }
+    
+    /**
+     * Name of the file containing the data shown on the character loading screen.
+     */
+    public String getLoadScreenFile() {
+        return loadScreenFile;
+    }
+    
+    /**
+     * @see #getLoadScreenFile()
+     */
+    public void setLoadScreenFile(String loadScreenFile) {
+        this.loadScreenFile = loadScreenFile;
     }
     
     /**

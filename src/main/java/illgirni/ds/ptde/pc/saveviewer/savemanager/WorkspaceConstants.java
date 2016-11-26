@@ -58,4 +58,9 @@ public final class WorkspaceConstants {
      */
     public static final String SAVE_SLOT_FILE_EXTENSION = "sl2char";
     
+    /**
+     * File extension for an exported load screen save slot file data.
+     */
+    public static final String SAVE_SLOT_LOAD_FILE_EXTENSION = "sl2load";
+    
 }

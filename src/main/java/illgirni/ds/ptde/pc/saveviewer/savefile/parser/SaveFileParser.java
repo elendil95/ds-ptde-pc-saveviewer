@@ -70,7 +70,9 @@ public class SaveFileParser extends AbstractSaveElementParser {
                                                                                                              slotDescriptor.getSlotLength()), 
                                                                         saveFileData);
                     
-                    final SaveSlot saveSlot = slotParser.parse(slotData, slotDescriptor.getIndex(), slotName);
+                    final ByteBlock loadScreenData = blockSectionParser.parse(saveFileDefinition.getSlotLoadScreenDefinition(slotIndex), saveFileData);
+                    
+                    final SaveSlot saveSlot = slotParser.parse(slotData, loadScreenData, slotDescriptor.getIndex(), slotName);
                     
                     saveFile.addSaveSlotDescriptor(slotDescriptor);
                     saveFile.addSaveSlot(saveSlot);

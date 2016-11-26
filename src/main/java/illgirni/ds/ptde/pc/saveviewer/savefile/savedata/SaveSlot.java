@@ -14,6 +14,12 @@ public class SaveSlot {
     private ByteBlock data;
     
     /**
+     * The actual bytes from the save file, which contain the data displayed 
+     * on the loading screen.
+     */
+    private ByteBlock loadScreenData;
+    
+    /**
      * The slot index.
      */
     private int index;
@@ -134,6 +140,21 @@ public class SaveSlot {
      */
     public void setData(ByteBlock slotData) {
         this.data = slotData;
+    }
+    
+    /**
+     * The actual bytes from the save file, which contain the data displayed 
+     * on the loading screen.
+     */
+    public ByteBlock getLoadScreenData() {
+        return loadScreenData;
+    }
+    
+    /**
+     * @see #getLoadScreenData()
+     */
+    public void setLoadScreenData(ByteBlock loadScreenData) {
+        this.loadScreenData = loadScreenData;
     }
     
     /**
