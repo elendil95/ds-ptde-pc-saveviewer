@@ -1,12 +1,8 @@
 package illgirni.ds.ptde.pc.saveviewer.savemanager;
 
 import java.io.File;
-
-import javax.xml.bind.JAXBContext;
-import javax.xml.bind.JAXBException;
-import javax.xml.bind.Marshaller;
-import javax.xml.bind.Unmarshaller;
-
+import java.io.IOException;
+import com.fasterxml.jackson.dataformat.xml.XmlMapper;
 import illgirni.ds.ptde.pc.saveviewer.ioc.annotations.Bean;
 import illgirni.ds.ptde.pc.saveviewer.ioc.annotations.Inject;
 import illgirni.ds.ptde.pc.saveviewer.savefile.savedata.SaveFile;
@@ -475,13 +471,10 @@ public class WorkspaceManager {
     public void saveWorkspace() throws SaveManagerException {
         try {
             final File workspaceFile = getWorkspaceFile();
+            XmlMapper mapper = new XmlMapper();
+            mapper.writeValue(workspaceFile, workspace);
             
-            final JAXBContext jaxbContext = JAXBContext.newInstance(SaveWorkspace.class);
-            final Marshaller jaxbMarshaller = jaxbContext.createMarshaller();
-            jaxbMarshaller.setProperty(Marshaller.JAXB_FORMATTED_OUTPUT, true);
-            jaxbMarshaller.marshal(getWorkspace(), workspaceFile);
-            
-        } catch (JAXBException e) {
+          } catch (IOException e) {
             throw new SaveManagerException("Error saving workspace.", e);
         }
         
@@ -495,14 +488,10 @@ public class WorkspaceManager {
     private void loadWorkspace() throws SaveManagerException {
         try {
             final File workspaceFile = getWorkspaceFile();
-            
-            final JAXBContext jaxbContext = JAXBContext.newInstance(SaveWorkspace.class);
-            final Unmarshaller unmarshaller = jaxbContext.createUnmarshaller();
-            
-            workspace = (SaveWorkspace) unmarshaller.unmarshal(workspaceFile);
-            
-        } catch (JAXBException e) {
-            throw new SaveManagerException("Error loading workspace.", e);
+           XmlMapper mapper = new XmlMapper();
+           workspace = mapper.readValue(workspaceFile, SaveWorkspace.class);
+         } catch (IOException e) {
+           throw new SaveManagerException("Error loading workspace.", e);
         }
         
     }

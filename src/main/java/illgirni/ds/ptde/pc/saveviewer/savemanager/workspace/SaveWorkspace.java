@@ -1,12 +1,9 @@
 package illgirni.ds.ptde.pc.saveviewer.savemanager.workspace;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlRootElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
-
+import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import illgirni.ds.ptde.pc.saveviewer.savefile.savedata.SaveFile;
 
 /**
@@ -17,27 +14,27 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savedata.SaveFile;
  * @author illgirni
  *
  */
-@XmlRootElement(name = "saveWorkspace")
-@XmlType(name = "saveWorkspaceType", propOrder = {"saveFilePath", "exportedSlots"})
-@XmlAccessorType(XmlAccessType.NONE)
+@JacksonXmlRootElement(localName = "saveWorkspace")
+@JsonPropertyOrder({"saveFilePath", "exportedSlots"})
+// @XmlAccessorType(XmlAccessType.NONE)
 public class SaveWorkspace {
     
     /**
      * The path to the save file to load.
      */
-    @XmlElement(name = "saveFile", required = true)
+    @JacksonXmlProperty(localName = "saveFilePath")
     private String saveFilePath;
     
     /**
      * The "root" for the groups (virtual "folders") in which the exported characters are organized.
      */
-    @XmlElement(name = "exportedSlots", required = true)
+    @JacksonXmlProperty(localName = "exportedSlots")
     private ExportedSlots exportedSlots = new ExportedSlots();
     
     /**
      * The save file loaded from the {@link #saveFilePath}.
      */
-    @XmlTransient
+    @JsonIgnore
     private SaveFile saveFile;
     
     /**

@@ -2,11 +2,9 @@ package illgirni.ds.ptde.pc.saveviewer.savemanager.workspace;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 /**
  * A named container. Can contain other elements of this type (as "sub-groups") and 
@@ -15,26 +13,30 @@ import javax.xml.bind.annotation.XmlType;
  * @author illgirni
  *
  */
-@XmlType(name = "exportedSlotGroupType", propOrder = {"name", "slotGroups", "slots"})
-@XmlAccessorType(XmlAccessType.NONE)
+@JacksonXmlRootElement(localName = "exportedSlotGroupType")
+@JsonPropertyOrder({"name", "slotGroups", "slots"})
+// @XmlAccessorType(XmlAccessType.NONE)
 public class ExportedSlotGroup implements Comparable<ExportedSlotGroup> {
     
     /**
      * The group name.
      */
-    @XmlElement(name = "name", required = true)
+
+    @JacksonXmlProperty(localName = "name")
     private String name;
     
     /**
      * The sub-groups.
      */
-    @XmlElement(name = "slotGroup")
+
+    @JacksonXmlProperty(localName = "slotGroup")
     private List<ExportedSlotGroup> slotGroups = new ArrayList<>();
     
     /**
      * The exported characters / save slots in this group.
      */
-    @XmlElement(name = "slot")
+
+    @JacksonXmlProperty(localName = "slot")
     private List<ExportedSlot> slots = new ArrayList<>();
     
     /**

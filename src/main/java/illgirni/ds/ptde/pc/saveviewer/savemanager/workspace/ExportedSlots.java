@@ -2,11 +2,9 @@ package illgirni.ds.ptde.pc.saveviewer.savemanager.workspace;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlType;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 /**
  * Container for the "root" groups (virtual "folders") in which the exported characters 
@@ -15,14 +13,15 @@ import javax.xml.bind.annotation.XmlType;
  * @author illgirni
  *
  */
-@XmlType(name = "exportedSlotsType", propOrder = {"slotGroups"})
-@XmlAccessorType(XmlAccessType.NONE)
+@JacksonXmlRootElement(localName = "exportedSlotType")
+@JsonPropertyOrder({"slotGroups"})
+// @XmlAccessorType(XmlAccessType.NONE)
 public class ExportedSlots {
     
     /**
      * The root groups.
      */
-    @XmlElement(name = "slotGroup")
+    @JacksonXmlProperty(localName = "slotGroups")
     private List<ExportedSlotGroup> slotGroups = new ArrayList<>();
     
     /**

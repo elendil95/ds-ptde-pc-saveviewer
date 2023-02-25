@@ -1,11 +1,8 @@
 package illgirni.ds.ptde.pc.saveviewer.savemanager.workspace;
 
-import javax.xml.bind.annotation.XmlAccessType;
-import javax.xml.bind.annotation.XmlAccessorType;
-import javax.xml.bind.annotation.XmlElement;
-import javax.xml.bind.annotation.XmlTransient;
-import javax.xml.bind.annotation.XmlType;
-
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
+import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 import illgirni.ds.ptde.pc.saveviewer.savefile.savedata.SaveSlot;
 
 /**
@@ -15,38 +12,43 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savedata.SaveSlot;
  * @author illgirni
  *
  */
-@XmlType(name = "exportedSlotType", propOrder = {"file", "loadScreenFile", "name", "description"})
-@XmlAccessorType(XmlAccessType.NONE)
+
+@JacksonXmlRootElement(localName = "exportedSlotType")
+@JsonPropertyOrder({"file", "loadScreen", "name"})
+// @XmlAccessorType(XmlAccessType.NONE)
 public class ExportedSlot implements Comparable<ExportedSlot> {
     
     /**
      * The custom name for the slot.
      */
-    @XmlElement(name = "name", required = true)
+    @JacksonXmlProperty(localName = "name")
     private String name;
     
     /**
      * Optional description (unused).
      */
-    @XmlElement(name = "description")
+    @JacksonXmlProperty(localName = "description")
     private String description;
     
     /**
      * Name of the file containing the exported slot.
      */
-    @XmlElement(name = "file", required = true)
+
+    @JacksonXmlProperty(localName = "file")
     private String file;
     
     /**
      * Name of the file containing the data shown on the character loading screen.
      */
-    @XmlElement(name = "loadScreenFile", required = true)
+
+    @JacksonXmlProperty(localName = "loadscreenfile")
     private String loadScreenFile;
     
     /**
      * The slot data loaded from the file.
      */
-    @XmlTransient
+
+    @JacksonXmlProperty(localName = "slot")
     private SaveSlot slot;
     
     /**
