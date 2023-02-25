@@ -6,7 +6,7 @@ import illgirni.ds.ptde.pc.saveviewer.ioc.annotations.Inject;
 @Bean
 public class MockBean2 {
 
-    @Inject
-    private MockBean1 beanRef;
-    
+  @Inject
+  private MockBean1 beanRef;
+
 }

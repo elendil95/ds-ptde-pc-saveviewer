@@ -9,22 +9,23 @@ import javafx.event.EventType;
  *
  */
 public class AddGroupEvent extends AbstractEvent<Void> {
-    
-    /**
-     * Serial version uid.
-     */
-    private static final long serialVersionUID = 1L;
-    
-    /**
-     * Add group event type.
-     */
-    public static final EventType<AddGroupEvent> ADD_GROUP = new EventType<>(SAVE_VIEWER_EVENT, "ADD_GROUP");
-    
-    /**
-     * No payload.
-     */
-    public AddGroupEvent() {
-        super(ADD_GROUP);
-    }
+
+  /**
+   * Serial version uid.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Add group event type.
+   */
+  public static final EventType<AddGroupEvent> ADD_GROUP =
+      new EventType<>(SAVE_VIEWER_EVENT, "ADD_GROUP");
+
+  /**
+   * No payload.
+   */
+  public AddGroupEvent() {
+    super(ADD_GROUP);
+  }
 
 }

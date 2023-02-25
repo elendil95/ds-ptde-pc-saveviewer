@@ -7,25 +7,25 @@ package illgirni.ds.ptde.pc.saveviewer.savemanager;
  *
  */
 public class SaveManagerException extends Exception {
-    
-    /**
-     * serial version uid.
-     */
-    private static final long serialVersionUID = 1L;
-    
-    /**
-     * @param message Error message.
-     */
-    public SaveManagerException(final String message) {
-        super(message);
-    }
-    
-    /**
-     * @param message Error message.
-     * @param cause Cause of the exception.
-     */
-    public SaveManagerException(final String message, final Throwable cause) {
-        super(message, cause);
-    }
+
+  /**
+   * serial version uid.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * @param message Error message.
+   */
+  public SaveManagerException(final String message) {
+    super(message);
+  }
+
+  /**
+   * @param message Error message.
+   * @param cause Cause of the exception.
+   */
+  public SaveManagerException(final String message, final Throwable cause) {
+    super(message, cause);
+  }
 
 }

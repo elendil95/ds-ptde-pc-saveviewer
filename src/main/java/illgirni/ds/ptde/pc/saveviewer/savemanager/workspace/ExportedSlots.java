@@ -7,8 +7,8 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 
 /**
- * Container for the "root" groups (virtual "folders") in which the exported characters 
- * are organized.
+ * Container for the "root" groups (virtual "folders") in which the exported characters are
+ * organized.
  * 
  * @author illgirni
  *
@@ -17,25 +17,25 @@ import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlRootElement;
 @JsonPropertyOrder({"slotGroups"})
 // @XmlAccessorType(XmlAccessType.NONE)
 public class ExportedSlots {
-    
-    /**
-     * The root groups.
-     */
-    @JacksonXmlProperty(localName = "slotGroups")
-    private List<ExportedSlotGroup> slotGroups = new ArrayList<>();
-    
-    /**
-     * The root groups.
-     */
-    public List<ExportedSlotGroup> getSlotGroups() {
-        return slotGroups;
-    }
-    
-    /**
-     * @see #getSlotGroups()
-     */
-    public void setSlotGroups(List<ExportedSlotGroup> slotGroups) {
-        this.slotGroups = slotGroups;
-    }
-    
+
+  /**
+   * The root groups.
+   */
+  @JacksonXmlProperty(localName = "slotGroups")
+  private List<ExportedSlotGroup> slotGroups = new ArrayList<>();
+
+  /**
+   * The root groups.
+   */
+  public List<ExportedSlotGroup> getSlotGroups() {
+    return slotGroups;
+  }
+
+  /**
+   * @see #getSlotGroups()
+   */
+  public void setSlotGroups(List<ExportedSlotGroup> slotGroups) {
+    this.slotGroups = slotGroups;
+  }
+
 }

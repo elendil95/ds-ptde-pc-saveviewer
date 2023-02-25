@@ -7,20 +7,20 @@ package illgirni.ds.ptde.pc.saveviewer.savefile.savedata.datatype;
  *
  */
 public enum TailOwner {
-    BELL_GARGOYLES,
-    
-    GAPING_DRAGON,
-    
-    HELLKITE,
-    
-    KALAMEET,
-    
-    PRISCILLA,
-    
-    SANCTUARY_GUARDIAN,
-    
-    SEATH,
-    
-    STONE_DRAGON,
-    
+  BELL_GARGOYLES,
+
+  GAPING_DRAGON,
+
+  HELLKITE,
+
+  KALAMEET,
+
+  PRISCILLA,
+
+  SANCTUARY_GUARDIAN,
+
+  SEATH,
+
+  STONE_DRAGON,
+
 }

@@ -17,27 +17,27 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savestructure.ByteBlockSectionDef
  *
  */
 public class WarpPointGroupBitBlockDefinition extends ByteBlockSectionDefinition<boolean[]> {
-    
-    /**
-     * The warp points for which this groups defines, if they are enabled.
-     */
-    private final List<Bonfire> bonfires;
-    
-    /**
-     * @param offset The offset of the byte in the slot content.
-     * @param bonfires The warp points for which this groups defines, if they are enabled.
-     */
-    public WarpPointGroupBitBlockDefinition(int offset, Bonfire... bonfires) {
-        super(offset, 1, JavaTypeToDataType.BITS_OF_BYTE);
-        
-        this.bonfires = Arrays.asList(bonfires);
-    }
-    
-    /**
-     * The warp points for which this groups defines, if they are enabled.
-     */
-    public List<Bonfire> getBonfires() {
-        return bonfires;
-    }
+
+  /**
+   * The warp points for which this groups defines, if they are enabled.
+   */
+  private final List<Bonfire> bonfires;
+
+  /**
+   * @param offset The offset of the byte in the slot content.
+   * @param bonfires The warp points for which this groups defines, if they are enabled.
+   */
+  public WarpPointGroupBitBlockDefinition(int offset, Bonfire... bonfires) {
+    super(offset, 1, JavaTypeToDataType.BITS_OF_BYTE);
+
+    this.bonfires = Arrays.asList(bonfires);
+  }
+
+  /**
+   * The warp points for which this groups defines, if they are enabled.
+   */
+  public List<Bonfire> getBonfires() {
+    return bonfires;
+  }
 
 }

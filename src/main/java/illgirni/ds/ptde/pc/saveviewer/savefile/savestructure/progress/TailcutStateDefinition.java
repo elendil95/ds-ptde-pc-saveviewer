@@ -9,13 +9,13 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savedata.datatype.TailOwner;
  *
  */
 public class TailcutStateDefinition extends AbstractBitDefinition<TailOwner> {
-    
-    /**
-     * @param tailOwner The tail owner.
-     * @param cutBitOffset The offset of the bit indicating, if the tail has been cut or not.
-     */
-    public TailcutStateDefinition(final TailOwner tailOwner, final int cutBitOffset) {
-        super(tailOwner, cutBitOffset);
-    }
-    
+
+  /**
+   * @param tailOwner The tail owner.
+   * @param cutBitOffset The offset of the bit indicating, if the tail has been cut or not.
+   */
+  public TailcutStateDefinition(final TailOwner tailOwner, final int cutBitOffset) {
+    super(tailOwner, cutBitOffset);
+  }
+
 }

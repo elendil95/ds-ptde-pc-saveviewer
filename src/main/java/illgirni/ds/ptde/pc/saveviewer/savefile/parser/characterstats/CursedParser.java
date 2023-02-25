@@ -11,11 +11,11 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.parser.AbstractIndicatorParser;
  */
 @Bean
 public class CursedParser extends AbstractIndicatorParser<Boolean> {
-    
-    /** {@inheritDoc} */
-    @Override
-    public Boolean parseFromIndicator(final long indicator) {
-        return indicator > 0;
-    }
-    
+
+  /** {@inheritDoc} */
+  @Override
+  public Boolean parseFromIndicator(final long indicator) {
+    return indicator > 0;
+  }
+
 }

@@ -9,43 +9,43 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savedata.datatype.Bonfire;
  *
  */
 public class WarpPointState {
-    
-    /**
-     * The warp point.
-     */
-    private Bonfire bonfire;
-    
-    /**
-     * If it is unlocked.
-     */
-    private boolean unlocked;
-    
-    /**
-     * The warp point.
-     */
-    public Bonfire getBonfire() {
-        return bonfire;
-    }
-    
-    /**
-     * @see #getBonfire()
-     */
-    public void setBonfire(Bonfire bonfire) {
-        this.bonfire = bonfire;
-    }
-    
-    /**
-     * If it is unlocked.
-     */
-    public boolean isUnlocked() {
-        return unlocked;
-    }
-    
-    /**
-     * @see #isUnlocked()
-     */
-    public void setUnlocked(boolean unlocked) {
-        this.unlocked = unlocked;
-    }
-    
+
+  /**
+   * The warp point.
+   */
+  private Bonfire bonfire;
+
+  /**
+   * If it is unlocked.
+   */
+  private boolean unlocked;
+
+  /**
+   * The warp point.
+   */
+  public Bonfire getBonfire() {
+    return bonfire;
+  }
+
+  /**
+   * @see #getBonfire()
+   */
+  public void setBonfire(Bonfire bonfire) {
+    this.bonfire = bonfire;
+  }
+
+  /**
+   * If it is unlocked.
+   */
+  public boolean isUnlocked() {
+    return unlocked;
+  }
+
+  /**
+   * @see #isUnlocked()
+   */
+  public void setUnlocked(boolean unlocked) {
+    this.unlocked = unlocked;
+  }
+
 }

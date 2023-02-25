@@ -8,8 +8,8 @@ package illgirni.ds.ptde.pc.saveviewer.savefile.savedata.datatype;
  */
 public enum Gender {
 
-    FEMALE,
-    
-    MALE
-    
+  FEMALE,
+
+  MALE
+
 }

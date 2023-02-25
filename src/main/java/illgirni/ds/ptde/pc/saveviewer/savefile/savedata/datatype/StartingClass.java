@@ -8,23 +8,23 @@ package illgirni.ds.ptde.pc.saveviewer.savefile.savedata.datatype;
  */
 public enum StartingClass {
 
-    WARRIOR,
-    
-    KNIGHT,
-    
-    WANDERER,
-    
-    THIEF,
-    
-    BANDIT,
-    
-    HUNTER,
-    
-    SORCERER,
-    
-    PYROMANCER,
-    
-    CLERIC,
-    
-    DEPRIVED
+  WARRIOR,
+
+  KNIGHT,
+
+  WANDERER,
+
+  THIEF,
+
+  BANDIT,
+
+  HUNTER,
+
+  SORCERER,
+
+  PYROMANCER,
+
+  CLERIC,
+
+  DEPRIVED
 }

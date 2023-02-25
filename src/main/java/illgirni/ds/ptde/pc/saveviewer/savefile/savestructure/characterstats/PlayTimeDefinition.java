@@ -12,12 +12,12 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savestructure.ByteBlockSectionDef
  */
 @Bean
 public class PlayTimeDefinition {
-    
-    /**
-     * The play time definition in the character stats play time section.
-     */
-    public ByteBlockSectionDefinition<Long> getPlayTimeDefinition() {
-        return new ByteBlockSectionDefinition<>(0, 4, JavaTypeToDataType.UINT_32);
-    }
-    
+
+  /**
+   * The play time definition in the character stats play time section.
+   */
+  public ByteBlockSectionDefinition<Long> getPlayTimeDefinition() {
+    return new ByteBlockSectionDefinition<>(0, 4, JavaTypeToDataType.UINT_32);
+  }
+
 }

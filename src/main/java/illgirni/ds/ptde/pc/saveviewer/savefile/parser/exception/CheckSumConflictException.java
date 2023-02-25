@@ -8,6 +8,6 @@ package illgirni.ds.ptde.pc.saveviewer.savefile.parser.exception;
  */
 public class CheckSumConflictException extends ParserException {
 
-    private static final long serialVersionUID = 1L;
+  private static final long serialVersionUID = 1L;
 
 }

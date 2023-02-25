@@ -13,17 +13,17 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savedata.datatype.Gender;
  */
 @Bean
 public class GenderParser extends AbstractIndicatorParser<Gender> {
-    
-    /** {@inheritDoc} */
-    @Override
-    public Gender parseFromIndicator(final long indicator) throws UnknownIndicatorException {
-        if (indicator == 0) {
-            return Gender.FEMALE;
-        } else if (indicator == 1) {
-            return Gender.MALE;
-        } else {
-            throw new UnknownIndicatorException(Gender.class, indicator);
-        }
+
+  /** {@inheritDoc} */
+  @Override
+  public Gender parseFromIndicator(final long indicator) throws UnknownIndicatorException {
+    if (indicator == 0) {
+      return Gender.FEMALE;
+    } else if (indicator == 1) {
+      return Gender.MALE;
+    } else {
+      throw new UnknownIndicatorException(Gender.class, indicator);
     }
-    
+  }
+
 }

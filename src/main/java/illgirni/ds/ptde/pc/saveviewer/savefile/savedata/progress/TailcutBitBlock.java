@@ -11,13 +11,13 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savedata.datatype.TailOwner;
  *
  */
 public class TailcutBitBlock extends AbstractProgressGroupBitBlock<TailOwner> {
-    
-    /**
-     * @param blockData The bits.
-     * @param tailOwner The tail owner.
-     */
-    public TailcutBitBlock(boolean[] blockData, final TailOwner tailOwner) {
-        super(blockData, Arrays.asList(tailOwner));
-    }
-    
+
+  /**
+   * @param blockData The bits.
+   * @param tailOwner The tail owner.
+   */
+  public TailcutBitBlock(boolean[] blockData, final TailOwner tailOwner) {
+    super(blockData, Arrays.asList(tailOwner));
+  }
+
 }

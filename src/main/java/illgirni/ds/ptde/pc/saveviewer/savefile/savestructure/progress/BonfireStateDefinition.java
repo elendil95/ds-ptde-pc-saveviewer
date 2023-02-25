@@ -13,19 +13,19 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savestructure.ByteBlockSectionDef
  */
 @Bean
 public class BonfireStateDefinition {
-    
-    /**
-     * The id of the bonfire.
-     */
-    public ByteBlockSectionDefinition<Long> getBonfireDefinition() {
-        return new ByteBlockSectionDefinition<>(8, 4, JavaTypeToDataType.UINT_32);
-    }
-    
-    /**
-     * The strength (kindle state) of the bonfire. This is a simple one byte indicator value.
-     */
-    public ByteBlockSectionDefinition<ByteBlock> getBonfireStrengthDefinition() {
-        return new ByteBlockSectionDefinition<>(12, 1, JavaTypeToDataType.BYTE_BLOCK);
-    }
-    
+
+  /**
+   * The id of the bonfire.
+   */
+  public ByteBlockSectionDefinition<Long> getBonfireDefinition() {
+    return new ByteBlockSectionDefinition<>(8, 4, JavaTypeToDataType.UINT_32);
+  }
+
+  /**
+   * The strength (kindle state) of the bonfire. This is a simple one byte indicator value.
+   */
+  public ByteBlockSectionDefinition<ByteBlock> getBonfireStrengthDefinition() {
+    return new ByteBlockSectionDefinition<>(12, 1, JavaTypeToDataType.BYTE_BLOCK);
+  }
+
 }

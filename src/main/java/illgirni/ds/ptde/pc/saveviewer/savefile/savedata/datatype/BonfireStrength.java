@@ -7,13 +7,13 @@ package illgirni.ds.ptde.pc.saveviewer.savefile.savedata.datatype;
  *
  */
 public enum BonfireStrength {
-    OFF,
-    
-    LIT,
-    
-    KINDLED_1,
-    
-    KINDLED_2,
-    
-    KINDLED_3
+  OFF,
+
+  LIT,
+
+  KINDLED_1,
+
+  KINDLED_2,
+
+  KINDLED_3
 }

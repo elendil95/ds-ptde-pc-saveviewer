@@ -10,27 +10,27 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savestructure.ByteBlockSectionDef
  *
  */
 public class TailcutBitBlockDefinition extends ByteBlockSectionDefinition<boolean[]> {
-    
-    /**
-     * The tail owner.
-     */
-    private final TailOwner tailOwner;
-    
-    /**
-     * @param offset The offset of the byte in the slot content.
-     * @param tailOwner The tail owner
-     */
-    public TailcutBitBlockDefinition(int offset, TailOwner tailOwner) {
-        super(offset, 1, JavaTypeToDataType.BITS_OF_BYTE);
-        
-        this.tailOwner = tailOwner;
-    }
-    
-    /**
-     * The tail owner.
-     */
-    public TailOwner getTailOwner() {
-        return tailOwner;
-    }
+
+  /**
+   * The tail owner.
+   */
+  private final TailOwner tailOwner;
+
+  /**
+   * @param offset The offset of the byte in the slot content.
+   * @param tailOwner The tail owner
+   */
+  public TailcutBitBlockDefinition(int offset, TailOwner tailOwner) {
+    super(offset, 1, JavaTypeToDataType.BITS_OF_BYTE);
+
+    this.tailOwner = tailOwner;
+  }
+
+  /**
+   * The tail owner.
+   */
+  public TailOwner getTailOwner() {
+    return tailOwner;
+  }
 
 }

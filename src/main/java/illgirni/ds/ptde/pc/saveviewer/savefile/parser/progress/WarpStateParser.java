@@ -21,67 +21,72 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savestructure.progress.WarpStateD
  */
 @Bean
 public class WarpStateParser extends AbstractSaveElementParser {
-    
-    /**
-     * The warp (un)locked definition.
-     */
-    @Inject
-    private WarpStateDefinition warpStateDefinition;
-    
-    /**
-     * The warp point unlocked parser for a single warp point.
-     */
-    @Inject
-    private WarpPointStateParser warpPointStateParser;
-    
-    /**
-     * The parser to determine if parsing is unlocked in general.
-     */
-    @Inject
-    private WarpUnlockedParser warpUnlockedParser;
-    
-    /**
-     * Parses the warp points unlocked information form the provided bit blocks and the warping unlocked information
-     * from the warp unlocked byte block.
-     * 
-     * @param warpPointGroupBitBlocks Collection of bit blocks with warp points information.
-     * @param warpUnlockedBlock Byte block with the warping unlocked information.
-     * @return The warp state of the playthrough.
-     * 
-     * @throws ParserException
-     */
-    public WarpState parse(final List<WarpPointGroupBitBlock> warpPointGroupBitBlocks, final ByteBlock warpUnlockedBlock) throws ParserException {
-        final WarpState warpState = new WarpState();
-        
-//        warpState.setWarpingUnlocked(true);
-//        
-//        for (final WarpUnlockedDefinition unlockedDefinition : warpStateDefinition.getWarpUnlockedDefinitions()) {
-//            if (!warpUnlockedBlock[unlockedDefinition.getBitOffset()]) {
-//                warpState.setWarpingUnlocked(false);
-//            }
-//        }
-        
-        warpState.setWarpingUnlocked(warpUnlockedParser.parse(warpUnlockedBlock));
-        
-        for (final WarpPointStateDefinition warpPointStateDefinition : warpStateDefinition.getWarpPointStateDefinitions()) {
-            WarpPointGroupBitBlock matchingGroupBitBlock = null;
-            
-            for (final WarpPointGroupBitBlock groupBitBlock : warpPointGroupBitBlocks) {
-                if (groupBitBlock.getRepresentors().contains(warpPointStateDefinition.getRepresentor())) {
-                    matchingGroupBitBlock = groupBitBlock;
-                    break;
-                }
-            }
-            
-            if (matchingGroupBitBlock != null) {
-                warpState.addWarpPoint(warpPointStateParser.parse(warpPointStateDefinition, matchingGroupBitBlock));
-            } else {
-                throw new RuntimeException("Missing warp point definition: " + warpPointStateDefinition.getRepresentor());
-            }
-            
+
+  /**
+   * The warp (un)locked definition.
+   */
+  @Inject
+  private WarpStateDefinition warpStateDefinition;
+
+  /**
+   * The warp point unlocked parser for a single warp point.
+   */
+  @Inject
+  private WarpPointStateParser warpPointStateParser;
+
+  /**
+   * The parser to determine if parsing is unlocked in general.
+   */
+  @Inject
+  private WarpUnlockedParser warpUnlockedParser;
+
+  /**
+   * Parses the warp points unlocked information form the provided bit blocks and the warping
+   * unlocked information from the warp unlocked byte block.
+   * 
+   * @param warpPointGroupBitBlocks Collection of bit blocks with warp points information.
+   * @param warpUnlockedBlock Byte block with the warping unlocked information.
+   * @return The warp state of the playthrough.
+   * 
+   * @throws ParserException
+   */
+  public WarpState parse(final List<WarpPointGroupBitBlock> warpPointGroupBitBlocks,
+      final ByteBlock warpUnlockedBlock) throws ParserException {
+    final WarpState warpState = new WarpState();
+
+    // warpState.setWarpingUnlocked(true);
+    //
+    // for (final WarpUnlockedDefinition unlockedDefinition :
+    // warpStateDefinition.getWarpUnlockedDefinitions()) {
+    // if (!warpUnlockedBlock[unlockedDefinition.getBitOffset()]) {
+    // warpState.setWarpingUnlocked(false);
+    // }
+    // }
+
+    warpState.setWarpingUnlocked(warpUnlockedParser.parse(warpUnlockedBlock));
+
+    for (final WarpPointStateDefinition warpPointStateDefinition : warpStateDefinition
+        .getWarpPointStateDefinitions()) {
+      WarpPointGroupBitBlock matchingGroupBitBlock = null;
+
+      for (final WarpPointGroupBitBlock groupBitBlock : warpPointGroupBitBlocks) {
+        if (groupBitBlock.getRepresentors().contains(warpPointStateDefinition.getRepresentor())) {
+          matchingGroupBitBlock = groupBitBlock;
+          break;
         }
-        
-        return warpState;
+      }
+
+      if (matchingGroupBitBlock != null) {
+        warpState.addWarpPoint(
+            warpPointStateParser.parse(warpPointStateDefinition, matchingGroupBitBlock));
+      } else {
+        throw new RuntimeException(
+            "Missing warp point definition: " + warpPointStateDefinition.getRepresentor());
+      }
+
     }
+
+    return warpState;
+  }
 
 }

@@ -15,21 +15,23 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savestructure.progress.BossProgre
  */
 @Bean
 public class BossProgressParser extends AbstractSaveElementParser {
-    
-    /**
-     * Parses the defeat information for the boss definition from the bit block.
-     * 
-     * @param bossProgressDefinition The boss definition.
-     * @param bossGroupBitBlock The "defeats bit block".
-     * @return The defeat information for the boss.
-     */
-    public BossProgress parse(BossProgressDefinition bossProgressDefinition, BossGroupBitBlock bossGroupBitBlock) {
-        final BossProgress bossProgress = new BossProgress();
-        
-        bossProgress.setBoss(bossProgressDefinition.getRepresentor());
-        bossProgress.setDefeated(bossGroupBitBlock.getBlockData()[bossProgressDefinition.getBitOffset()]);
-        
-        return bossProgress;
-    }
+
+  /**
+   * Parses the defeat information for the boss definition from the bit block.
+   * 
+   * @param bossProgressDefinition The boss definition.
+   * @param bossGroupBitBlock The "defeats bit block".
+   * @return The defeat information for the boss.
+   */
+  public BossProgress parse(BossProgressDefinition bossProgressDefinition,
+      BossGroupBitBlock bossGroupBitBlock) {
+    final BossProgress bossProgress = new BossProgress();
+
+    bossProgress.setBoss(bossProgressDefinition.getRepresentor());
+    bossProgress
+        .setDefeated(bossGroupBitBlock.getBlockData()[bossProgressDefinition.getBitOffset()]);
+
+    return bossProgress;
+  }
 
 }

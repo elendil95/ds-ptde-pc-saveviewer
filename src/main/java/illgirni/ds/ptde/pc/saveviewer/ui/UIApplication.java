@@ -9,13 +9,13 @@ import java.io.File;
  *
  */
 public interface UIApplication {
-    /**
-     * Starts the user interface application.
-     */
-    public void start();
-    
-    /**
-     * The directory containing the setting files of the application.
-     */
-    public File getSettingsDirectory();
+  /**
+   * Starts the user interface application.
+   */
+  public void start();
+
+  /**
+   * The directory containing the setting files of the application.
+   */
+  public File getSettingsDirectory();
 }

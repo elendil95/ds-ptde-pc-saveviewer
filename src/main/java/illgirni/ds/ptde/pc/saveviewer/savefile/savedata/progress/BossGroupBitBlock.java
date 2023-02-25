@@ -11,13 +11,13 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savedata.datatype.Boss;
  *
  */
 public class BossGroupBitBlock extends AbstractProgressGroupBitBlock<Boss> {
-    
-    /**
-     * @param blockData The bits.
-     * @param bosses The bosses represented by these bits.
-     */
-    public BossGroupBitBlock(boolean[] blockData, final List<Boss> bosses) {
-        super(blockData, bosses);
-    }
-    
+
+  /**
+   * @param blockData The bits.
+   * @param bosses The bosses represented by these bits.
+   */
+  public BossGroupBitBlock(boolean[] blockData, final List<Boss> bosses) {
+    super(blockData, bosses);
+  }
+
 }

@@ -9,13 +9,13 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savedata.datatype.Boss;
  *
  */
 public class BossProgressDefinition extends AbstractBitDefinition<Boss> {
-    
-    /**
-     * @param boss The boss for which to determine if defeated or not.
-     * @param defeatBitOffset The defeat bit offset in the group byte.
-     */
-    public BossProgressDefinition(final Boss boss, final int defeatBitOffset) {
-        super(boss, defeatBitOffset);
-    }
-    
+
+  /**
+   * @param boss The boss for which to determine if defeated or not.
+   * @param defeatBitOffset The defeat bit offset in the group byte.
+   */
+  public BossProgressDefinition(final Boss boss, final int defeatBitOffset) {
+    super(boss, defeatBitOffset);
+  }
+
 }

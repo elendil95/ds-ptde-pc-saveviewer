@@ -8,8 +8,8 @@ import java.lang.annotation.Target;
 import illgirni.ds.ptde.pc.saveviewer.ioc.InjectionContext;
 
 /**
- * Marker for a property of a {@link Bean} where the property value can be injected during 
- * bean instantiation with the {@link InjectionContext}.
+ * Marker for a property of a {@link Bean} where the property value can be injected during bean
+ * instantiation with the {@link InjectionContext}.
  * 
  * @author illgirni
  *

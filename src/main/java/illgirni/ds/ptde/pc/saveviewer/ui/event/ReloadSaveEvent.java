@@ -9,22 +9,23 @@ import javafx.event.EventType;
  *
  */
 public class ReloadSaveEvent extends AbstractEvent<Void> {
-    
-    /**
-     * Serial version uid.
-     */
-    private static final long serialVersionUID = 1L;
-    
-    /**
-     * Reload save file event type.
-     */
-    public static final EventType<ReloadSaveEvent> RELOAD_SAVE = new EventType<>(SAVE_VIEWER_EVENT, "RELOAD_SAVE");
-    
-    /**
-     * No payload.
-     */
-    public ReloadSaveEvent() {
-        super(RELOAD_SAVE);
-    }
+
+  /**
+   * Serial version uid.
+   */
+  private static final long serialVersionUID = 1L;
+
+  /**
+   * Reload save file event type.
+   */
+  public static final EventType<ReloadSaveEvent> RELOAD_SAVE =
+      new EventType<>(SAVE_VIEWER_EVENT, "RELOAD_SAVE");
+
+  /**
+   * No payload.
+   */
+  public ReloadSaveEvent() {
+    super(RELOAD_SAVE);
+  }
 
 }

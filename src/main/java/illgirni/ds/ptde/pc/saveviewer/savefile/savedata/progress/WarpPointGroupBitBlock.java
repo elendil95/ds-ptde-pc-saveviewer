@@ -11,13 +11,13 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savedata.datatype.Bonfire;
  *
  */
 public class WarpPointGroupBitBlock extends AbstractProgressGroupBitBlock<Bonfire> {
-    
-    /**
-     * @param blockData The bits.
-     * @param bonfires The warp points.
-     */
-    public WarpPointGroupBitBlock(boolean[] blockData, final List<Bonfire> bonfires) {
-        super(blockData, bonfires);
-    }
-    
+
+  /**
+   * @param blockData The bits.
+   * @param bonfires The warp points.
+   */
+  public WarpPointGroupBitBlock(boolean[] blockData, final List<Bonfire> bonfires) {
+    super(blockData, bonfires);
+  }
+
 }

@@ -9,10 +9,10 @@ import illgirni.ds.ptde.pc.saveviewer.ioc.annotations.Inject;
  *
  */
 public abstract class AbstractSaveElementParser {
-    
-    /**
-     * The generic byte block parser.
-     */
-    @Inject
-    protected ByteBlockSectionParser blockSectionParser;
+
+  /**
+   * The generic byte block parser.
+   */
+  @Inject
+  protected ByteBlockSectionParser blockSectionParser;
 }

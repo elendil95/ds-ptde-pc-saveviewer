@@ -20,34 +20,35 @@ import illgirni.ds.ptde.pc.saveviewer.savefile.savestructure.characterstats.Cove
  */
 @Bean
 public class CovenantLevelsParser extends AbstractSaveElementParser {
-    
-    /**
-     * The definition of the partitioning of the covenant levels definition.
-     */
-    @Inject
-    private CovenantLevelsDefinition covenantLevelsDefinition;
-    
-    /**
-     * Parses the covenant levels from the byte block.
-     */
-    public List<CovenantLevel> parse(final ByteBlock covenantLevelsBlock) {
-        final List<CovenantLevel> covenantLevels = new ArrayList<>();
-        
-        for (final Covenant covenant : Covenant.values()) {
-            final ByteBlockSectionDefinition<Long> covenantLevelDefinition = covenantLevelsDefinition.getCovenantLevelDefinition(covenant);
-            final long covenantLevel;
-            
-            if (covenantLevelDefinition != null) {
-                covenantLevel = blockSectionParser.parse(covenantLevelDefinition, covenantLevelsBlock);
-                
-            } else {
-                covenantLevel = 0;
-            }
-            
-            covenantLevels.add(new CovenantLevel(covenant, covenantLevel));
-        }
-        
-        return covenantLevels;
+
+  /**
+   * The definition of the partitioning of the covenant levels definition.
+   */
+  @Inject
+  private CovenantLevelsDefinition covenantLevelsDefinition;
+
+  /**
+   * Parses the covenant levels from the byte block.
+   */
+  public List<CovenantLevel> parse(final ByteBlock covenantLevelsBlock) {
+    final List<CovenantLevel> covenantLevels = new ArrayList<>();
+
+    for (final Covenant covenant : Covenant.values()) {
+      final ByteBlockSectionDefinition<Long> covenantLevelDefinition =
+          covenantLevelsDefinition.getCovenantLevelDefinition(covenant);
+      final long covenantLevel;
+
+      if (covenantLevelDefinition != null) {
+        covenantLevel = blockSectionParser.parse(covenantLevelDefinition, covenantLevelsBlock);
+
+      } else {
+        covenantLevel = 0;
+      }
+
+      covenantLevels.add(new CovenantLevel(covenant, covenantLevel));
     }
-    
+
+    return covenantLevels;
+  }
+
 }
