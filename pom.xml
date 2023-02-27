@@ -1,14 +1,28 @@
 <project xmlns="http://maven.apache.org/POM/4.0.0" 
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
-
     <modelVersion>4.0.0</modelVersion>
+
     <groupId>illgirni.ds</groupId>
     <artifactId>ptde.pc.saveviewer</artifactId>
-    <name>PTDE PC SaveViewer</name>
     <version>1.0-SNAPSHOT</version>
-    
     <packaging>jar</packaging>
+
+    <name>PTDE PC SaveViewer</name>
+
+    <profiles>
+    </profiles>
+
+    <properties>
+        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+        <maven.compiler.release>17</maven.compiler.release>
+        <maven.compiler.source>17</maven.compiler.source>
+        <maven.compiler.target>17</maven.compiler.target>
+        <maven.compiler.encoding>UTF-8</maven.compiler.encoding>
+        <javafx.version>16</javafx.version>
+        <javafx.maven.plugin.version>0.0.6</javafx.maven.plugin.version>
+        <javafx.maven.plugin.mainClass>illgirni.ds.ptde.pc.saveviewer.SaveViewer</javafx.maven.plugin.mainClass>
+    </properties>
 
     <build>
         <defaultGoal>install</defaultGoal>
@@ -48,7 +62,6 @@
         <!-- Plugins -->
         <!-- ========================== -->
         <plugins>
-
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-clean-plugin</artifactId>
@@ -87,9 +100,9 @@
                 <version>2.5.1</version>
                 <inherited>true</inherited>
                 <configuration>
-                    <source>1.8</source>
-                    <target>1.8</target>
-                    <encoding>utf-8</encoding>
+                    <source>${maven.compiler.source}</source>
+                    <target>${maven.compiler.target}</target>
+                    <encoding>${maven.compiler.encoding}</encoding>
                 </configuration>
             </plugin>
             <plugin>
@@ -129,6 +142,15 @@
                 </executions>
             </plugin>
             
+            <!-- MVN JavaFX plugins -->
+            <plugin>
+                <groupId>org.openjfx</groupId>
+                <artifactId>javafx-maven-plugin</artifactId>
+                <version>${javafx.maven.plugin.version}</version>
+                <configuration>
+                    <mainClass>${javafx.maven.plugin.mainClass}</mainClass>
+                </configuration>
+            </plugin>
             <!-- Unit Tests (Surefire) -->
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
@@ -182,13 +204,29 @@
             <version>4.11</version>
             <scope>test</scope>
         </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-controls</artifactId>
+            <version>${javafx.version}</version>
+        </dependency>
+         <!-- Uncomment for cross-platform fat jar-->
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
+            <classifier>win</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
+            <classifier>linux</classifier>
+        </dependency>
+        <dependency>
+            <groupId>org.openjfx</groupId>
+            <artifactId>javafx-graphics</artifactId>
+            <version>${javafx.version}</version>
+            <classifier>mac</classifier>
+        </dependency>
     </dependencies>
-    
-    <profiles>
-    </profiles>
-    
-    <properties>
-        
-    </properties>
-
 </project>
